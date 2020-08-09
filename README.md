@@ -6,7 +6,7 @@
 
 ### Preface
 
-Here we will be introduced with PostgreSQL an open source, robust, high performance database with a lot of great features where we will do some hands on practice to learn the basics of PostgreSQL. All the implementations were tested on Ubuntu 18.04. Before dive into PostgreSQL we will have a look on some basic theory of **database**, **SQL** and **PostgreSQL**. 
+Here we will be introduced with PostgreSQL an open-source, robust, high-performance database with a lot of great features where we will do some hands-on practice to learn the basics of PostgreSQL. All the implementations were tested on Ubuntu 18.04. Before diving into PostgreSQL we will have a look at some basic theory of **database**, **SQL**, and **PostgreSQL**.
 
 #### What is a Database? 
 
