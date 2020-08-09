@@ -2,8 +2,6 @@
 
 # Learn PostgreSQL 
 
-[TOC]
-
 
 
 ### Preface
