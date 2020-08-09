@@ -1,4 +1,4 @@
-![](/home/lib10/Pictures/postgresql-card.png)
+https://blog.xojo.com/wp-content/uploads/2017/06/postgresql-card.png
 
 # Learn PostgreSQL 
 
