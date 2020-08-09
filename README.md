@@ -1,4 +1,4 @@
-https://blog.xojo.com/wp-content/uploads/2017/06/postgresql-card.png
+![PostgreSQL Icon](https://blog.xojo.com/wp-content/uploads/2017/06/postgresql-card.png)
 
 # Learn PostgreSQL 
 
