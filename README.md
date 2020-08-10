@@ -2,7 +2,7 @@
 
 # Learn PostgreSQL 
 
-
+[TOC]
 
 ### Preface
 
@@ -32,7 +32,45 @@ Just follow this link [Linux downloads (Ubuntu)](https://www.postgresql.org/down
 
 For other system follow this official link [Downloads](https://www.postgresql.org/download/) to download and for installation instructions.
 
+#### PostgreSQL Roles and User Login
 
+PostgreSQL roles is a feature by PostgreSQL for handling authentication and authorization. It's a concept of managing permissions where more than one roles can be created and roles can be members of other roles, allowing them to take on the permission to manipulate changes.
+
+##### Accessing with Switching Accounts
+
+After installation by default PostgreSQL created account called  *postgres*  that is the default PostgreSQL Role. To log in this account, switch over to the *postgres* type this command:
+
+`$ sudo -i -u postgres`
+
+To access a Postgres prompt type:
+
+`$ psql`
+
+Now you will be logged in and able to start interaction with the database.
+
+To quit from Postgres prompt just type this command:
+
+`postgres=#  \q`
+
+##### Accessing without Switching Accounts
+
+Following is the command that will log into Postgres without the intermediary *bash* shell in between.:
+
+`$ sudo -u postgres psql`
+
+##### How to check Roles in PostgreSQL 
+
+To check the list of roles first type the following command:
+
+`psql`
+
+then type this:
+
+`\du` 
+
+We will see the list of roles with their name,  list of attributes and member of which role.
+
+####  
 
 
 
