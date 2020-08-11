@@ -6,30 +6,31 @@
 
 ## Table of Contents
 
-- + - * [Learn PostgreSQL](#learn-postgresql)
-        * [Table of Contents](#table-of-contents)
-          + [Preface](#preface)
-            - [What is a Database?](#what-is-a-database-)
-            - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
-            - [What is PostgreSQL?](#what-is-postgresql-)
-          + [Getting Started](#getting-started)
-            - [Setup & Install PostgreSQL](#setup---install-postgresql)
-            - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
-              * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
-              * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
-              * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
-              * [Create roles in PostgreSQL](#create-roles-in-postgresql)
-              * [Update and Delete a Roll in PostgreSQL](#update-and-delete-a-roll-in-postgresql)
-              * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
-            - [How to create database](#how-to-create-database)
-            - [How to connect a database](#how-to-connect-a-database)
-          + [The SQL Language](#the-sql-language)
-            - [Creating a new table to a database](#creating-a-new-table-to-a-database)
-            - [Deleting a table from a database](#deleting-a-table-from-a-database)
-            - [Adding data to the table](#adding-data-to-the-table)
-            - [Querying data from the table](#querying-data-from-the-table)
-      
-      
+[Learn PostgreSQL](#learn-postgresql)
+
+* [Table of Contents](#table-of-contents)
+  + [Preface](#preface)
+    - [What is a Database?](#what-is-a-database-)
+    - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
+    - [What is PostgreSQL?](#what-is-postgresql-)
+  + [Getting Started](#getting-started)
+    - [Setup & Install PostgreSQL](#setup---install-postgresql)
+    - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
+      * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
+      * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
+      * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
+      * [Create roles in PostgreSQL](#create-roles-in-postgresql)
+      * [Update and Delete a Roll in PostgreSQL](#update-and-delete-a-roll-in-postgresql)
+      * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
+    - [How to create database](#how-to-create-database)
+    - [How to connect a database](#how-to-connect-a-database)
+  + [The SQL Language](#the-sql-language)
+    - [Creating a new table to a database](#creating-a-new-table-to-a-database)
+    - [Deleting a table from a database](#deleting-a-table-from-a-database)
+    - [Adding data to the table](#adding-data-to-the-table)
+    - [Querying data from the table](#querying-data-from-the-table)
+
+
 
 ### Preface
 
