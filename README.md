@@ -70,13 +70,13 @@ After installation by default PostgreSQL created an account called  *postgres*  
 
 `$ sudo -i -u postgres`
 
-![01](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/01.png)
+<img src="./img/01.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To access a Postgres prompt type:
 
 `$ psql`
 
-![02](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/02.png)
+<img src="./img/02.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 Now you will be logged in and able to start the interaction with the database.
 
@@ -84,7 +84,7 @@ To quit from Postgres prompt just type this command:
 
 `postgres=#  \q`
 
-![03](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/03.png)
+<img src="./img/03.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 ##### Accessing without Switching Accounts
 
@@ -92,7 +92,7 @@ Following is the command that will log into Postgres without the intermediary *b
 
 `$ sudo -u postgres psql`
 
-![04](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/04.png)
+<img src="./img/04.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 ##### How to check Roles in PostgreSQL 
 
@@ -104,7 +104,7 @@ then type this:
 
 `\du` 
 
-![05](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/05.png)
+<img src="./img/05.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 We will see the list of roles with their name,  list of attributes, and member of which role.
 
@@ -120,7 +120,7 @@ Then we can create a role simply typing this:
 
 `CREATE ROLE new_roll_name;`
 
-![06](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/06.png)
+<img src="./img/06.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 And we can add a password for the login session and add attributes that will define which types of access the role has been authorized to manipulate into the database. Then we can also add to the column 'member of' if the role is under any member.
 
@@ -128,11 +128,11 @@ Let's add a role where the user name is `SubAdmin`with  authorized as `SUPERUSER
 
 `CREATE ROLE SubAdmin WITH SUPERUSER CREATEDB PASSWORD 'abcd'; `
 
-![07](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/07.png)
+<img src="./img/07.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 Type `\du` to see the newly created role.
 
-![08](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/08.png)
+<img src="./img/08.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 ##### Update and Delete a Roll in PostgreSQL
 
@@ -142,13 +142,13 @@ To update attributes to the new role and change it's password type the command:
 
 `ALTER USER WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'Newabcd';`
 
-![10](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/10.png)
+<img src="./img/10.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 If we need to delete a role than simply type:
 
 `DROP ROLE SubAdmin;`
 
-![12](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/12.png)
+<img src="./img/12.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 ##### Create and Delete Roles from using shell commands (Without connecting `psql`)
 
@@ -156,7 +156,7 @@ To create a database role with non-superuser access from the shell just type and
 
 `createuser -PE RoleName`
 
-![13](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/13.png)
+<img src="./img/13.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 Where our `-P` flag prompts to set a password for the new role and the `-E`flag indicates to store the password as an MD5-encrypted string.
 
@@ -166,13 +166,13 @@ To Delete a database role from the shell just type:
 
 `dropuser -i RoleName`
 
-![14](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/14.png)
+<img src="./img/14.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To create a superuser from the shell type:
 
 `createuser -sPE SuperuserName`
 
-![15](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/15.png)
+<img src="./img/15.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 #### How to create database
 
@@ -182,31 +182,31 @@ To create a database from shell type:
 
 `$ createdb databaseName1`
 
-![16](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/16.png)
+<img src="./img/16.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To create a database from `psql`type:
 
 `CREATE DATABASE databaseName2;`
 
-![17](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/17.png)
+<img src="./img/17.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To see the list of databases and  their details type from `psql`:
 
 `\l`
 
-![18](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/18.png)
+<img src="./img/18.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To delete a database from the shell type:
 
 `$ dropdb databaseName1`
 
-![19](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/19.png)
+<img src="./img/19.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 And to delete the database from the `psql`type this:
 
 `DROP DATABASE databaseName2;`
 
-![20](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/20.png)
+<img src="./img/20.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 #### How to connect a database
 
@@ -214,19 +214,19 @@ To connect a database type from the shell:
 
 `psql databasename;`
 
-![21](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/21.png)
+<img src="./img/21.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To switch from another database type:
 
 `\c databasename2`
 
-![22](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/22.png)
+<img src="./img/22.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To get help for various SQL commands type:
 
 `\h`
 
-![23](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/23.png)
+<img src="./img/23.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 To quit from the database type:
 
@@ -252,7 +252,7 @@ CREATE TABLE weather (
 );
 ```
 
-![24](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/24.png)
+<img src="./img/24.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 Here we can see a table named weather where 5 columns and their data types added. Here in the first column `city` is a column and `varchar` is its types with a range of 80 characters.  We can add a comment to start with`--` and we can see three comments here.
 
@@ -265,7 +265,7 @@ CREATE TABLE cities (
 );
 ```
 
-![25](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/25.png)
+<img src="./img/25.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 The `point` type is an example of a PostgreSQL specific data type.
 
@@ -285,7 +285,7 @@ To add or insert data into a table type this example:
 INSERT INTO weather VALUES ('San Francisco', 46, 50, 0.25, '1994-11-27');
 ```
 
-![26](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/26.png)
+<img src="./img/26.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 Here we can see the table name should be specified with its columns value.
 
@@ -295,7 +295,7 @@ Another example:
 INSERT INTO cities VALUES ('San Francisco', '(-194.0, 53.0)');
 ```
 
-![27](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/27.png)
+<img src="./img/27.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 We saw a type PostgreSQL specific data type `point` above example shows that we the of `point` type should be defined as coordinate pairs.
 
@@ -306,7 +306,7 @@ INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
     VALUES ('San Francisco', 43, 57, 0.0, '1994-11-29');
 ```
 
-![28](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/28.png)
+<img src="./img/28.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 Column name can be listed in a different order.
 
@@ -315,7 +315,7 @@ INSERT INTO weather (date, city, temp_hi, temp_lo)
     VALUES ('1994-11-29', 'Hayward', 54, 37);
 ```
 
-![29](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/29.png)
+<img src="./img/29.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 An additional feature and optimized way to insert a large number of data just type `COPY`command with the table name and its location where the database exists.
 
@@ -331,7 +331,7 @@ To retrieve data from a table type this:
 SELECT * FROM weather;
 ```
 
-![](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/30.png)
+<img src="./img/30.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 We can write expressions, not just simple column references, in the select list. For example, we can do:
 
@@ -339,7 +339,7 @@ We can write expressions, not just simple column references, in the select list.
 SELECT city, (temp_hi+temp_lo)/2 AS temp_avg, date FROM weather;
 ```
 
-![31](/home/lib10/Insync/hridoy341@gmail.com/Google Drive/Courses and Projects/002 Brilliant Cloud Research Group/Week 01/LearnPostgreSQl/img/31.png)
+<img src="./img/31.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 
 
