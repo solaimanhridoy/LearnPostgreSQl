@@ -6,31 +6,31 @@
 
 ## Table of Contents
 
-[Learn PostgreSQL](#learn-postgresql)
-
-* [Table of Contents](#table-of-contents)
-  + [Preface](#preface)
-    - [What is a Database?](#what-is-a-database-)
-    - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
-    - [What is PostgreSQL?](#what-is-postgresql-)
-  + [Getting Started](#getting-started)
-    - [Setup & Install PostgreSQL](#setup---install-postgresql)
-    - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
-      * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
-      * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
-      * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
-      * [Create roles in PostgreSQL](#create-roles-in-postgresql)
-      * [Update and Delete a Roll in PostgreSQL](#update-and-delete-a-roll-in-postgresql)
-      * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
-    - [How to create database](#how-to-create-database)
-    - [How to connect a database](#how-to-connect-a-database)
-  + [The SQL Language](#the-sql-language)
-    - [Creating a new table to a database](#creating-a-new-table-to-a-database)
-    - [Deleting a table from a database](#deleting-a-table-from-a-database)
-    - [Adding data to the table](#adding-data-to-the-table)
-    - [Querying data from the table](#querying-data-from-the-table)
-
-
+- [Learn PostgreSQL](#learn-postgresql)
+  * [Table of Contents](#table-of-contents)
+    + [Preface](#preface)
+      - [What is a Database?](#what-is-a-database-)
+      - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
+      - [What is PostgreSQL?](#what-is-postgresql-)
+    + [Getting Started](#getting-started)
+      - [Setup & Install PostgreSQL](#setup---install-postgresql)
+      - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
+        * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
+        * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
+        * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
+        * [Create roles in PostgreSQL](#create-roles-in-postgresql)
+        * [Update and Delete a Role in PostgreSQL](#update-and-delete-a-role-in-postgresql)
+        * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
+      - [How to create database](#how-to-create-database)
+      - [How to connect a database](#how-to-connect-a-database)
+    + [The SQL Language](#the-sql-language)
+      - [Creating a new table to a database](#creating-a-new-table-to-a-database)
+      - [Deleting a table from a database](#deleting-a-table-from-a-database)
+      - [Adding data to the table](#adding-data-to-the-table)
+      - [Querying data from the table](#querying-data-from-the-table)
+      - [Creating a Table With Constraints](#creating-a-table-with-constraints)
+      - [Creating a table and Inserting Into that table from a SQL file](#creating-a-table-and-inserting-into-that-table-from-a-sql-file)
+      - [Sort Data by Using 'Order BY'](#sort-data-by-using--order-by-)
 
 ### Preface
 
@@ -238,7 +238,7 @@ To store, retrieve, and manipulate database PostgreSQL uses the basic SQL langua
 
 #### Creating a new table to a database
 
-In SQL to create a table we need to define the table name, column name and their data types.
+In SQL to create a table, we need to define the table name, column name, and their data types.
 
 To create a table type copy this:
 
@@ -308,7 +308,7 @@ INSERT INTO weather (city, temp_lo, temp_hi, prcp, date)
 
 <img src="./img/28.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-Column name can be listed in a different order.
+The column name can be listed in a different order.
 
 ```
 INSERT INTO weather (date, city, temp_hi, temp_lo)
@@ -356,7 +356,7 @@ Let's create a table with some constraints where all column has a constraint `NO
 		data_of_birth DATE NOT NULL
 	);
 
-The constraint `NOT NULL`specify that the column must have a data, it can not be left as blank.
+The constraint `NOT NULL`specifies that the column must have a data, it can not be left as blank.
 
 <img src="./img/32.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
@@ -368,7 +368,7 @@ Let's check and see the description of the table by typing:
 
 #### Creating a table and Inserting Into that table from a SQL file
 
-Let's assume that we have a SQL file where we have a table named `person` and it's column values in a location named `/home/lib10/Downloads/person.sql`. Now, we need to run that file from PostgreSQL prompt, than type:
+Let's assume that we have a SQL file where we have a table named `person` and it's column values in a location named `/home/lib10/Downloads/person.sql`. Now, we need to run that file from PostgreSQL prompt, then type:
 
 `\i /home/lib10/Downloads/person.sql`
 
@@ -388,7 +388,7 @@ In SQL we can retrieve sorted data of a table by using `ORDER BY` command. Let's
 
 <img src="./img/36.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-Notice above table where the `country_of_birth` are sorted by Ascending Order.
+Notice above the table where the `country_of_birth` is sorted by Ascending Order.
 
 To sort the column by descending order type:
 
@@ -396,9 +396,9 @@ To sort the column by descending order type:
 
 <img src="./img/37.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-Now, notice above table where the `country_of_birth` are sorted by Descending Order.
+Now, notice above the table where the `country_of_birth` is sorted by Descending Order.
 
-Like these we can sort the table by the rest of the column names. (`id, first_name, last_name, email, date_of_birth`)
+Like these, we can sort the table by the rest of the column names. (`id, first_name, last_name, email, date_of_birth`)
 
 Now, Let's sort the table by multiple column names.  Type this:
 
