@@ -134,7 +134,7 @@ Type `\du` to see the newly created role.
 
 <img src="./img/08.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-##### Update and Delete a Roll in PostgreSQL
+##### Update and Delete a Role in PostgreSQL
 
 Suppose we need to add more attributes to our new role `lib10` and that means we need to update the role attributes change the password. 
 
@@ -340,6 +340,45 @@ SELECT city, (temp_hi+temp_lo)/2 AS temp_avg, date FROM weather;
 ```
 
 <img src="./img/31.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Creating a Table With Constraints
+
+We can specify some constraints to a table where the constraints need to be satisfied to insert data into the table.
+
+Let's create a table with some constraints where all column has a constraint `NOT NULL` except `email`column. Type this:  
+
+	CREATE TABLE person1 (
+		id BIGSERIAL NOT NULL PRIMARY KEY,
+		first_name VARCHAR(50) NOT NULL,
+		last_name VARCHAR(50) NOT NULL,
+		email VARCHAR(50),
+		gender VARCHAR(5) NOT NULL,
+		data_of_birth DATE NOT NULL
+	);
+
+The constraint `NOT NULL`specify that the column must have a data, it can not be left as blank.
+
+<img src="./img/32.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Let's check and see the description of the table by typing:
+
+`\d person`
+
+<img src="./img/33.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 			
+
+#### Creating a table and Inserting Into that table from a SQL file
+
+Let's assume that we have a SQL file where we have a table named `person` and it's column values in a location named `/home/lib10/Downloads/person.sql`. Now, we need to run that file from PostgreSQL prompt, than type:
+
+`\i /home/lib10/Downloads/person.sql`
+
+<img src="./img/34.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+To retrieve all data from the table type:
+
+`SELECT * FROM person;`
+
+<img src="./img/35.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 
 
