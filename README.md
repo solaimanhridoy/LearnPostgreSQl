@@ -31,6 +31,12 @@
       - [Creating a Table With Constraints](#creating-a-table-with-constraints)
       - [Creating a table and Inserting Into that table from a SQL file](#creating-a-table-and-inserting-into-that-table-from-a-sql-file)
       - [Sort Data by Using 'Order BY'](#sort-data-by-using--order-by-)
+      - [Uses of WHERE Clause, AND and OR in PostgreSQL](#uses-of-where-clause--and-and-or-in-postgresql)
+      - [Using Comparison Operators in PostgreSQL](#using-comparison-operators-in-postgresql)
+      - [Using LIMIT, OFFSET & FETCH keywords](#using-limit--offset---fetch-keywords)
+      - [Using of `IN` Keyword](#using-of--in--keyword)
+      - [Using of `BETWEEN` Keyword](#using-of--between--keyword)
+      - [Using of `LIKE` and `ILIKE` operators](#using-of--like--and--ilike--operators)
 
 ### Preface
 
@@ -425,6 +431,117 @@ Let's assume that we need to retrieve the unique `country_of_birth` which are ap
 Following image is showing the output:
 
 <img src="./img/40.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Uses of WHERE Clause, AND and OR in PostgreSQL
+
+To retrieve data of a specific group such as `gender = Female` from the table `person` type this:
+
+`SELECT * FROM person WHERE gender = 'Female';`
+
+<img src="./img/41.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+We can use multiple conditions in WHERE clause using `AND` conditional operator.
+
+Let's retrieve data of male gender from country Poland, type:
+
+`SELECT * FROM person WHERE gender = 'Male' AND country_of_birth = 'Poland';`
+
+<img src="./img/42.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Now, we will use the OR condition to retrieve data from more than one country. For showing male gender from Poland and Bangladesh type this:
+
+`SELECT * FROM person WHERE gender = 'Male' AND country_of_birth = 'Poland' OR country_of_birth = 'Bangladesh';`
+
+<img src="./img/43.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+#### Using Comparison Operators in PostgreSQL
+
+In SQL this is allowed to use some types of operations and they are:
+
+- Arithmetic Operations
+- Comparison Operations
+- Bitwise Operations
+- Logical Operations
+
+Following are some comparison operations performing on `psql` :
+
+<img src="./img/44.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+We can also perform these operations on other data types. Let's see how to perform on string:
+
+<img src="./img/45.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+#### Using LIMIT, OFFSET & FETCH keywords
+
+`LIMIT` is used to retrieve specific numbers of data from data. Let's assume that we want to see only the first 10 rows from the `person` table, then type this:
+
+`SELECT * FROM person LIMIT 10;`
+
+<img src="./img/46.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+`OFFSET` keyword is used when we need to skip a certain amount of data and start from where want to see.
+
+Let's assume that, we want to retrieve and show 10 rows of data skipping the first 5 rows from the table, then type this:
+
+`SELECT * FROM person OFFSET 5 LIMIT 10;`
+
+<img src="./img/47.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Here above image, you can see the `id` column started from `6` and showing only 10 rows till `id` is `15`. 
+
+`FETCH` keyword allows the same thing as `LIMIT` but `LIMIT` is not a standard SQL keyword where `FETCH` is an actual standard keyword in SQL.
+
+Let's see an example, type this:
+
+`SELECT * FROM person OFFSET 5 FETCH FIRST 5 ROW ONLY;`
+
+<img src="./img/48.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
+
+#### Using of `IN` Keyword
+
+This keyword is used for showing specific data related to specific values.
+
+Let's assume that we want to show data only from `country_of_birth` Poland, Brazil, France, then type this:
+
+`SELECT * FROM person WHERE country_of_birth IN ('Poland', 'Brazil', 'France');`
+
+<img src="./img/49.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Using of `BETWEEN` Keyword
+
+This keyword is used to select data from a range. To find persons in a specific range of `date_of_birth` type:
+
+ `SELECT * FROM person WHERE date_of_birth BETWEEN DATE '2019-01-01' AND '2019-10-01';`
+
+<img src="./img/50.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Using of `LIKE` and `ILIKE` operators
+
+Let's retrieve data using `LIKE` of email addresses of `.org` the domain from `email`, type this:
+
+`SELECT * FROM person WHERE email LIKE '%.org';`
+
+<img src="./img/51.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+We can specify at least how many characters will appear before `.org` 
+
+For example, we want only those email addresses which have at least 17 characters long before`.org` then we need to add 17 numbers of '_' (dash) before the `.org` domain by typing like this:
+
+`SELECT * FROM person WHERE email LIKE '%_________________.org'; `
+
+<img src="./img/52.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+`ILIKE` is used to ignore the case sensitive issues. Such as, we will type same SQL command replacing `LIKE` with `ILIKE` exactly before we used where we will type `.org` as a capital case `.ORG` and it will show the exact same output.   
+
+`SELECT * FROM person WHERE email ILIKE '%_________________.ORG';`
+
+<img src="./img/53.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 
 
