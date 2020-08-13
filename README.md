@@ -380,6 +380,52 @@ To retrieve all data from the table type:
 
 <img src="./img/35.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
+#### Sort Data by Using 'Order BY'
+
+In SQL we can retrieve sorted data of a table by using `ORDER BY` command. Let's try to retrieve the sorted data by ascending order from our previous table by their country_of_birth. Type the following SQL Command.
+
+`SELECT * FROM person ORDER BY country_of_birth ASC;`
+
+<img src="./img/36.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Notice above table where the `country_of_birth` are sorted by Ascending Order.
+
+To sort the column by descending order type:
+
+`SELECT * FROM person ORDER BY country_of_birth DESC;` 
+
+<img src="./img/37.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Now, notice above table where the `country_of_birth` are sorted by Descending Order.
+
+Like these we can sort the table by the rest of the column names. (`id, first_name, last_name, email, date_of_birth`)
+
+Now, Let's sort the table by multiple column names.  Type this:
+
+`SELECT * FROM person ORDER BY first_name, email;` 
+
+<img src="./img/38.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+The output of the command is showing that `first_name` and `email` columns are sorted in Ascending Order.
+
+Taking only one column and sort that column in Ascending Order type:
+
+`SELECT last_name FROM person ORDER BY last_name ASC;`
+
+<img src="./img/39.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 
-To be continued ...
+
+To retrieve unique data of a column we will use `DISTINCT` command.
+
+Let's assume that we need to retrieve the unique `country_of_birth` which are appeared only once on the table `person` let's type:
+
+`SELECT DISTINCT first_name  FROM person ORDER BY first_name;`
+
+Following image is showing the output:
+
+<img src="./img/40.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+#### To be continued ...
