@@ -37,6 +37,12 @@
       - [Using of `IN` Keyword](#using-of--in--keyword)
       - [Using of `BETWEEN` Keyword](#using-of--between--keyword)
       - [Using of `LIKE` and `ILIKE` operators](#using-of--like--and--ilike--operators)
+      - [Using `GROUP BY` Keyword](#using--group-by--keyword)
+      - [Using Arithmetic Operations](#using-arithmetic-operations)
+    + [How to Handle NULL Values in PostgreSQL](#how-to-handle-null-values-in-postgresql)
+      - [Uses of `COALESCE`](#uses-of--coalesce-)
+      - [Uses of `NULLIF`](#uses-of--nullif-)
+      - [To be continued ...](#to-be-continued-)
 
 ### Preface
 
@@ -374,9 +380,9 @@ Let's check and see the description of the table by typing:
 
 #### Creating a table and Inserting Into that table from a SQL file
 
-Let's assume that we have a SQL file where we have a table named `person` and it's column values in a location named `/home/lib10/Downloads/person.sql`. Now, we need to run that file from PostgreSQL prompt, then type:
+Let's assume that we have a SQL file where we have a table named `person` and it's column values in a location named `/filelocation/person.sql`. Now, we need to run that file from PostgreSQL prompt, then type:
 
-`\i /home/lib10/Downloads/person.sql`
+`\i /filelocation/person.sql`
 
 <img src="./img/34.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
@@ -469,6 +475,8 @@ Following are some comparison operations performing on `psql` :
 
 <img src="./img/44.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
+Here, t = true and, f = false.
+
 We can also perform these operations on other data types. Let's see how to perform on string:
 
 <img src="./img/45.png" alt="PostgreSQL Icon" style="zoom:110%;" />
@@ -542,6 +550,100 @@ For example, we want only those email addresses which have at least 17 character
 `SELECT * FROM person WHERE email ILIKE '%_________________.ORG';`
 
 <img src="./img/53.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Using `GROUP BY` Keyword
+
+This is used for grouping by the basis of columns of a table. Let's see an example.
+
+Suppose, we need to calculate the statistics of how many people we have from each of the countries on the table. Then type this:
+
+`SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;` 
+
+<img src="./img/54.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+We can us `HAVING` keyword with `GRPOP BY` keyword to specify a condition. 
+
+Let's suppose that we want only those `country_of_birth` which have more than 5 persons on the table. Then type:
+
+`SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING COUNT(*) > 5 ORDER BY country_of_birth;`
+
+ <img src="./img/55.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+We used `COUNT()` in previous examples which is an Aggregate Function. This function is used for calculating the number of values of a column. There are more aggregate functions like SUM() - calculate the summation of the values of a column, AVG() - gives an average of the values of a column, MIN() - gives the minimum value of a column, MAX() - gives the maximum value of a column, etc. 
+
+Before using these Aggregate Functions we will create a table and insert into that table from another SQL file named car.sql:
+
+`\i /filelocation/car.sql`
+
+<img src="./img/56.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+To get the maximum, minimum, average and sum value of `price` type:
+
+<img src="./img/57.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Using Arithmetic Operations
+
+To perform arithmetic operations have a look following the image:
+
+<img src="./img/58.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+To perform 10% OFF into the price of the car, let's type a query:
+
+`SELECT id, make, model, price AS Original_Price, round(price * .10, 2) AS Ten_Percent, ROUND(price - (price) * .10) AS After_Discount FROM car;`
+
+Here, `ROUND()` is a function to make the required figure of a number. Then `AS` is an Alias that uses to set the column names.
+
+<img src="./img/59.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+
+
+### How to Handle NULL Values in PostgreSQL
+
+#### Uses of `COALESCE`
+
+When a column has some NULL values and we want to set those values by a default value without leaving them totally blank, we can use `COALESCE` in PostgreSQL.
+
+Let's see how it actually looks before and after using `COALESCE` when selecting data from a table.
+
+Before using `COALESCE`:
+
+`SELECT COALESCE(email) FROM person;`
+
+<img src="./img/60.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+After using `COALESCE`
+
+`SELECT COALESCE(email, 'Email Not Provided.') FROM person;`
+
+<img src="./img/61.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+#### Uses of `NULLIF`
+
+This is used to handle division by zero. 
+
+Have a look on the following screen shot:
+
+<img src="./img/62.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+We know that in arithmetic a numeric value can not be divided by Zero. So as usual Postgres
+
+raises error while we try to perform division operation by Zero.  So in that case we use `NULLIF` keyword where two parameters are used, first one is considered to divide the given value only if the value is greater than or equal to second value.
+
+It doesn't show the result while both parameters are zero, meanwhile, we can use `COALESCE` to set a default value that will show a 'Zero'
+
+
+
+
 
 
 
