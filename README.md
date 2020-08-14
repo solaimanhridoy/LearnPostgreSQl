@@ -6,43 +6,53 @@
 
 ## Table of Contents
 
-- [Learn PostgreSQL](#learn-postgresql)
-  * [Table of Contents](#table-of-contents)
-    + [Preface](#preface)
-      - [What is a Database?](#what-is-a-database-)
-      - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
-      - [What is PostgreSQL?](#what-is-postgresql-)
-    + [Getting Started](#getting-started)
-      - [Setup & Install PostgreSQL](#setup---install-postgresql)
-      - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
-        * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
-        * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
-        * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
-        * [Create roles in PostgreSQL](#create-roles-in-postgresql)
-        * [Update and Delete a Role in PostgreSQL](#update-and-delete-a-role-in-postgresql)
-        * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
-      - [How to create database](#how-to-create-database)
-      - [How to connect a database](#how-to-connect-a-database)
-    + [The SQL Language](#the-sql-language)
-      - [Creating a new table to a database](#creating-a-new-table-to-a-database)
-      - [Deleting a table from a database](#deleting-a-table-from-a-database)
-      - [Adding data to the table](#adding-data-to-the-table)
-      - [Querying data from the table](#querying-data-from-the-table)
-      - [Creating a Table With Constraints](#creating-a-table-with-constraints)
-      - [Creating a table and Inserting Into that table from a SQL file](#creating-a-table-and-inserting-into-that-table-from-a-sql-file)
-      - [Sort Data by Using 'Order BY'](#sort-data-by-using--order-by-)
-      - [Uses of WHERE Clause, AND and OR in PostgreSQL](#uses-of-where-clause--and-and-or-in-postgresql)
-      - [Using Comparison Operators in PostgreSQL](#using-comparison-operators-in-postgresql)
-      - [Using LIMIT, OFFSET & FETCH keywords](#using-limit--offset---fetch-keywords)
-      - [Using of `IN` Keyword](#using-of--in--keyword)
-      - [Using of `BETWEEN` Keyword](#using-of--between--keyword)
-      - [Using of `LIKE` and `ILIKE` operators](#using-of--like--and--ilike--operators)
-      - [Using `GROUP BY` Keyword](#using--group-by--keyword)
-      - [Using Arithmetic Operations](#using-arithmetic-operations)
-    + [How to Handle NULL Values in PostgreSQL](#how-to-handle-null-values-in-postgresql)
-      - [Uses of `COALESCE`](#uses-of--coalesce-)
-      - [Uses of `NULLIF`](#uses-of--nullif-)
-      - [To be continued ...](#to-be-continued-)
+[Preface](#preface)
+
+- [What is a Database?](#what-is-a-database-)
+- [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
+- [What is PostgreSQL?](#what-is-postgresql-)
+
++ [Getting Started](#getting-started)
+  - [Setup & Install PostgreSQL](#setup---install-postgresql)
+  - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
+    * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
+    * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
+    * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
+    * [Create roles in PostgreSQL](#create-roles-in-postgresql)
+    * [Update and Delete a Role in PostgreSQL](#update-and-delete-a-role-in-postgresql)
+    * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
+  - [How to create database](#how-to-create-database)
+  - [How to connect a database](#how-to-connect-a-database)
++ [The SQL Language](#the-sql-language)
+  - [Creating a new table to a database](#creating-a-new-table-to-a-database)
+  - [Deleting a table from a database](#deleting-a-table-from-a-database)
+  - [Inserting Data Into The Table](#inserting-data-into-the-table)
+  - [Querying data from the table](#querying-data-from-the-table)
+  - [Deleting Data Into The Table](#deleting-data-into-the-table)
+  - [Creating a Table With Constraints](#creating-a-table-with-constraints)
+  - [Creating a table and Inserting Into that table from a SQL file](#creating-a-table-and-inserting-into-that-table-from-a-sql-file)
+  - [Sort Data by Using 'Order BY'](#sort-data-by-using--order-by-)
+  - [Uses of WHERE Clause, AND and OR in PostgreSQL](#uses-of-where-clause--and-and-or-in-postgresql)
+  - [Using Comparison Operators in PostgreSQL](#using-comparison-operators-in-postgresql)
+  - [Using LIMIT, OFFSET & FETCH keywords](#using-limit--offset---fetch-keywords)
+  - [Using of `IN` Keyword](#using-of--in--keyword)
+  - [Using of `BETWEEN` Keyword](#using-of--between--keyword)
+  - [Using of `LIKE` and `ILIKE` operators](#using-of--like--and--ilike--operators)
+  - [Using `GROUP BY` Keyword](#using--group-by--keyword)
+  - [Using Arithmetic Operations](#using-arithmetic-operations)
++ [How to Handle NULL Values in PostgreSQL](#how-to-handle-null-values-in-postgresql)
+  - [Uses of `COALESCE`](#uses-of--coalesce-)
+  - [Uses of `NULLIF`](#uses-of--nullif-)
++ [Timestamps and Dates in PostgreSQL](#timestamps-and-dates-in-postgresql)
+  - [Adding and Subtracting With Date](#adding-and-subtracting-with-date)
+  - [Extracting Field From Date, Times in PostgreSQL](#extracting-field-from-date--times-in-postgresql)
+  - [Using `AGE()` Function To Calculate Age](#using--age----function-to-calculate-age)
++ [Primary Key In PostgreSQL](#primary-key-in-postgresql)
+  - [Understanding Primary Keys](#understanding-primary-keys)
+  - [Adding Primary Key](#adding-primary-key)
+  - [UNIQUE CONSTRAINTS](#unique-constraints)
+  - [CHECK CONSTRAINTS](#check-constraints)
+  - [To be continued ...](#to-be-continued-)
 
 ### Preface
 
@@ -289,7 +299,7 @@ To delete a database type this:
 DROP TABLE tablename;
 ```
 
-#### Adding data to the table
+#### Inserting Data Into The Table
 
 To add or insert data into a table type this example:
 
@@ -352,6 +362,24 @@ SELECT city, (temp_hi+temp_lo)/2 AS temp_avg, date FROM weather;
 ```
 
 <img src="./img/31.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Deleting Data Into The Table
+
+To delete a certain record we will use `DELETE` and `WHERE`. By using `WHERE` clause we are giving a certain condition which record to delete. We will discuss about `WHERE` more in upcoming topics.
+
+Type this to delete the third row from the table `weather`:
+
+`DELETE FROM weather WHERE temp_lo = 37;`
+
+<img src="./img/84(Deleting Data).png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Now let's check the table by typing this:
+
+`SELECT * FROM weather;`
+
+<img src="./img/85(Deleting Record).png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
 
 #### Creating a Table With Constraints
 
@@ -641,7 +669,199 @@ raises error while we try to perform division operation by Zero.  So in that cas
 
 It doesn't show the result while both parameters are zero, meanwhile, we can use `COALESCE` to set a default value that will show a 'Zero'
 
+### Timestamps and Dates in PostgreSQL
 
+Let's see some date and times operations on terminal:
+
+<img src="./img/63.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Adding and Subtracting With Date
+
+We can add or subtract with dates in PostgreSQL using `INTTERVAL` keyword.
+
+Let's try to subtract '1 YEAR', '10 YEAR', '10 MONTHS', '10 DAYS' from current dates. Type:
+
+`SELECT NOW() - INTERVAL '1 YEAR';`
+
+`SELECT NOW() - INTERVAL '10 YEAR';` 
+
+`SELECT NOW() - INTERVAL '10 MONTHS';`
+
+`SELECT NOW() - INTERVAL '10 DAY';` 
+
+<img src="./img/64.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
+
+To add '1 YEAR', '10 YEAR', '10 MONTHS', '10 DAYS' from current dates. Type:
+
+`SELECT NOW() + INTERVAL '1 YEAR';`
+
+`SELECT NOW() + INTERVAL '10 YEAR';`
+
+`SELECT NOW() + INTERVAL '10 MONTHS';`
+
+`SELECT NOW() + INTERVAL '10 DAY';`
+
+<img src="./img/65.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+If we want to cast only date and ignore the time, type:
+
+`SELECT (NOW() + INTERVAL '10 YEAR')::DATE;`
+
+<img src="./img/66.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Extracting Field From Date, Times in PostgreSQL
+
+We can extract single value such as Year, Month, Date, Minutes etc. from dates and times by using `EXTRACT` keyword.
+
+Let's walk through some example on terminal:
+
+<img src="./img/67.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Using `AGE()` Function To Calculate Age
+
+Let's calculate age of all persons using `AGE()` function and `date_of_birth` column from our previous `person` table:
+
+Type this:
+
+`SELECT first_name, last_name, gender,country_of_birth, AGE(NOW(), date_of_birth) AS age FROM person;`
+
+<img src="./img/68.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+### Primary Key In PostgreSQL
+
+We use PRIMARY KEY to differ from same values of a column or record. Such as, we can use an unique id to identify them as individual where two person's first_name, last_name and date_of_birth are same in a table.
+
+<img src="./img/69.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
+
+#### Understanding Primary Keys
+
+If we notice in the description of the table `person`then we can see that the table has already a constraint name 'person_pkey' for column `id` which is the PRIMARY KEY of  the table. Type: 
+
+`\d person`
+
+<img src="./img/70.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Now type following query to see the first row of the table:
+
+`SELECT * FROM person LIMIT 1;`
+
+<img src="./img/71.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+Now if we insert again same record as row number 1 to the table postgres will raise an error that will say.
+
+`ERROR:  duplicate key value violates unique constraint "person_pkey"
+DETAIL:  Key (id)=(1) already exists.`
+
+Let's try to insert same records into the table:
+
+`insert into person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) values (1, 'Dennis', 'Fritche', null, 'Male', '01-May-2020', 'Indonesia');`  
+
+<img src="./img/72.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+Now, let's Drop the CONSTRAINT from the table:
+
+`ALTER TABLE person DROP CONSTRAINT person_pkey;
+ALTER TABLE` 
+
+<img src="./img/73.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+Notice at the below image where we can see the CONSTRAINT 'person_pkey' is dropped and there is no field that contain PRIMARY KEY.
+
+<img src="./img/74.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+Now let's try to insert same records again, and this time the record will be inserted into the table:
+
+ `insert into person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) values (1, 'Dennis', 'Fritche', null, 'Male', '01-May-2020', 'Indonesia');`  
+
+<img src="./img/75.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Type the following command to see the inserted record into the table:
+
+`SELECT * FROM person WHERE id = 1;`
+
+<img src="./img/76.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### Adding Primary Key
+
+In previous topic we dropped the CONSTRAINT from the `person` table and there is no PRIMARY KEY on the table `person`.
+
+Now let's add PRIMARY KEY to that table by typing:
+
+`ALTER TABLE person ADD PRIMARY KEY(id);`
+
+And This will raise an error like this:
+
+<img src="./img/77.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
+
+Because the field need to be unique to set it PRIMARY KEY but there is already two exactly same records which we inserted into the table.
+
+So first let's remove the duplicate records by typing this:
+
+`DELETE FROM person WHERE id = 1;`
+
+<img src="./img/78.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
+
+Now, Insert the deleted unique record into the table:
+
+`insert into person (id, first_name, last_name, email, gender, date_of_birth, country_of_birth) values (1, 'Dennis', 'Fritche', null, 'Male', '01-May-2020', 'Indonesia');`
+
+<img src="./img/79.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+This time we can add the PRIMARY KEY into the table. Type this:
+
+`ALTER TABLE person ADD PRIMARY KEY(id);`
+
+<img src="./img/80.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+Let's check the CONSTRAINT of the table `person` by typing:
+
+`\d person`
+
+and we will notice the PRIMARY KEY is added.
+
+<img src="./img/81.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+#### UNIQUE CONSTRAINTS
+
+To set other fields or columns allowed for only unique value that means there can not be any duplicate value in a column, we can use `UNIQUE` CONSTRAINT.   
+
+Let's make `email` column as `UNIQUE` constraint, type this:
+
+`ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE (email);`
+
+To check if the CONSTRAINT is added let's type:
+
+`\d person`
+
+<img src="./img/82.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Now we can not insert same `email` value into table `person` that email address already contain any row from the table.
+
+#### CHECK CONSTRAINTS
+
+Another CONSTRAINT is used that checks values from a certain condition. If want to we add this constraint to the `gender` column of the table `person` then type:
+
+`ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male');`
+
+Here we set a CONSTRAINT that checks the inserted `gender` is whether `Male` or `Female`. That means we can not insert record that contain any other string rather than 'Male' or 'Female',
+
+Type `\d person` to check the CONSTRAINTS from the indexes:
+
+<img src="./img/83.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 
 
