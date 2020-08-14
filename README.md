@@ -1148,17 +1148,8 @@ Let's walk through on terminal:
 
 
 
-### **References**
+### <u>**References**:</u>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-[ i ] *https://www.postgresqltutorial.com/postgresql-foreign-key/*  What Is A Relationship/Foreign Keys
 
-[i]: 
+[ i ] *https://www.postgresqltutorial.com/postgresql-foreign-key/*  What Is A Relationship/Foreign Key
 
-=======
-[i]: https://www.postgresqltutorial.com/postgresql-foreign-key/	"What Is A Relationship/Foreign Keys"
->>>>>>> 3db136f36b75cdf110e56939fa5376f9a2c0737a
-=======
-[i]: https://www.postgresqltutorial.com/postgresql-foreign-key/	"What Is A Relationship/Foreign Keys"
->>>>>>> 3db136f36b75cdf110e56939fa5376f9a2c0737a
