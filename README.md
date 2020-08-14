@@ -1150,6 +1150,7 @@ Let's walk through on terminal:
 
 ### **References**
 
-------
+[ i ] *https://www.postgresqltutorial.com/postgresql-foreign-key/*  What Is A Relationship/Foreign Keys
 
-[i]: https://www.postgresqltutorial.com/postgresql-foreign-key/	"What Is A Relationship/Foreign Keys"
+[i]: 
+
