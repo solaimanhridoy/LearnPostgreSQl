@@ -7,62 +7,63 @@
 ## Table of Contents
 
 + [Preface](#preface)
-
-  - [What is a Database?](#what-is-a-database-)
-  - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
-  - [What is PostgreSQL?](#what-is-postgresql-)
-
-  + [Getting Started](#getting-started)
-    - [Setup & Install PostgreSQL](#setup---install-postgresql)
-    - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
-      * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
-      * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
-      * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
-      * [Create roles in PostgreSQL](#create-roles-in-postgresql)
-      * [Update and Delete a Role in PostgreSQL](#update-and-delete-a-role-in-postgresql)
-      * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
-    - [How to create database](#how-to-create-database)
-    - [How to connect a database](#how-to-connect-a-database)
-  + [The SQL Language](#the-sql-language)
-    - [Creating a new table to a database](#creating-a-new-table-to-a-database)
-    - [Deleting a table from a database](#deleting-a-table-from-a-database)
-    - [Inserting Data Into The Table](#inserting-data-into-the-table)
-    - [Querying data from the table](#querying-data-from-the-table)
-    - [Deleting Data Into The Table](#deleting-data-into-the-table)
-    - [Creating a Table With Constraints](#creating-a-table-with-constraints)
-    - [Creating a table and Inserting Into that table from a SQL file](#creating-a-table-and-inserting-into-that-table-from-a-sql-file)
-    - [Sort Data by Using 'Order BY'](#sort-data-by-using--order-by-)
-    - [Uses of WHERE Clause, AND and OR in PostgreSQL](#uses-of-where-clause--and-and-or-in-postgresql)
-    - [Using Comparison Operators in PostgreSQL](#using-comparison-operators-in-postgresql)
-    - [Using LIMIT, OFFSET & FETCH keywords](#using-limit--offset---fetch-keywords)
-    - [Using of `IN` Keyword](#using-of--in--keyword)
-    - [Using of `BETWEEN` Keyword](#using-of--between--keyword)
-    - [Using of `LIKE` and `ILIKE` operators](#using-of--like--and--ilike--operators)
-    - [Using `GROUP BY` Keyword](#using--group-by--keyword)
-    - [Using Arithmetic Operations](#using-arithmetic-operations)
-  + [How to Handle NULL Values in PostgreSQL](#how-to-handle-null-values-in-postgresql)
-    - [Uses of `COALESCE`](#uses-of--coalesce-)
-    - [Uses of `NULLIF`](#uses-of--nullif-)
-  + [Timestamps and Dates in PostgreSQL](#timestamps-and-dates-in-postgresql)
-    - [Adding and Subtracting With Date](#adding-and-subtracting-with-date)
-    - [Extracting Field From Date, Times in PostgreSQL](#extracting-field-from-date--times-in-postgresql)
-    - [Using `AGE()` Function To Calculate Age](#using--age----function-to-calculate-age)
-  + [Primary Key In PostgreSQL](#primary-key-in-postgresql)
-    - [Understanding Primary Keys](#understanding-primary-keys)
-    - [Adding Primary Key](#adding-primary-key)
-    - [UNIQUE CONSTRAINTS](#unique-constraints)
-    - [CHECK CONSTRAINTS](#check-constraints)
-  + [Updating Records in PostgreSQL](#updating-records-in-postgresql)
-  + [On Conflict Do Nothing](#on-conflict-do-nothing)
-    - [ON CONFLICT DO UPDATE](#on-conflict-do-update)
-  + [What Is A Relationship/Foreign Keys](#what-is-a-relationship-foreign-keys)
-  + [Inner Join](#inner-join)
-    - [To be continued ...](#to-be-continued-)
-  + [**References**](#--references--)
+      - [What is a Database?](#what-is-a-database-)
+      - [What is SQL and Relational Database?](#what-is-sql-and-relational-database-)
+      - [What is PostgreSQL?](#what-is-postgresql-)
+    + [Getting Started](#getting-started)
+      - [Setup & Install PostgreSQL](#setup---install-postgresql)
+      - [PostgreSQL Roles and User Login](#postgresql-roles-and-user-login)
+        * [Accessing with Switching Accounts](#accessing-with-switching-accounts)
+        * [Accessing without Switching Accounts](#accessing-without-switching-accounts)
+        * [How to check Roles in PostgreSQL](#how-to-check-roles-in-postgresql)
+        * [Create roles in PostgreSQL](#create-roles-in-postgresql)
+        * [Update and Delete a Role in PostgreSQL](#update-and-delete-a-role-in-postgresql)
+        * [Create and Delete Roles from using shell commands (Without connecting `psql`)](#create-and-delete-roles-from-using-shell-commands--without-connecting--psql--)
+      - [How to create database](#how-to-create-database)
+      - [How to connect a database](#how-to-connect-a-database)
+    + [The SQL Language](#the-sql-language)
+      - [Creating a new table to a database](#creating-a-new-table-to-a-database)
+      - [Deleting a table from a database](#deleting-a-table-from-a-database)
+      - [Inserting Data Into The Table](#inserting-data-into-the-table)
+      - [Querying data from the table](#querying-data-from-the-table)
+      - [Deleting Data Into The Table](#deleting-data-into-the-table)
+      - [Creating a Table With Constraints](#creating-a-table-with-constraints)
+      - [Creating a table and Inserting Into that table from a SQL file](#creating-a-table-and-inserting-into-that-table-from-a-sql-file)
+      - [Sort Data by Using 'Order BY'](#sort-data-by-using--order-by-)
+      - [Uses of WHERE Clause, AND and OR in PostgreSQL](#uses-of-where-clause--and-and-or-in-postgresql)
+      - [Using Comparison Operators in PostgreSQL](#using-comparison-operators-in-postgresql)
+      - [Using LIMIT, OFFSET & FETCH keywords](#using-limit--offset---fetch-keywords)
+      - [Using of `IN` Keyword](#using-of--in--keyword)
+      - [Using of `BETWEEN` Keyword](#using-of--between--keyword)
+      - [Using of `LIKE` and `ILIKE` operators](#using-of--like--and--ilike--operators)
+      - [Using `GROUP BY` Keyword](#using--group-by--keyword)
+      - [Using Arithmetic Operations](#using-arithmetic-operations)
+    + [How to Handle NULL Values in PostgreSQL](#how-to-handle-null-values-in-postgresql)
+      - [Uses of `COALESCE`](#uses-of--coalesce-)
+      - [Uses of `NULLIF`](#uses-of--nullif-)
+    + [Timestamps and Dates in PostgreSQL](#timestamps-and-dates-in-postgresql)
+      - [Adding and Subtracting With Date](#adding-and-subtracting-with-date)
+      - [Extracting Field From Date, Times in PostgreSQL](#extracting-field-from-date--times-in-postgresql)
+      - [Using `AGE()` Function To Calculate Age](#using--age----function-to-calculate-age)
+    + [Primary Key In PostgreSQL](#primary-key-in-postgresql)
+      - [Understanding Primary Keys](#understanding-primary-keys)
+      - [Adding Primary Key](#adding-primary-key)
+      - [UNIQUE CONSTRAINTS](#unique-constraints)
+      - [CHECK CONSTRAINTS](#check-constraints)
+    + [Updating Records in PostgreSQL](#updating-records-in-postgresql)
+    + [On Conflict Do Nothing](#on-conflict-do-nothing)
+      - [ON CONFLICT DO UPDATE](#on-conflict-do-update)
+    + [What Is A Relationship/Foreign Keys](#what-is-a-relationship-foreign-keys)
+    + [Inner Join](#inner-join)
+    + [Left Join](#left-join)
+    + [Deleting Records with foreign keys](#deleting-records-with-foreign-keys)
+    + [Exporting Query Results To CSV](#exporting-query-results-to-csv)
+    + [UUID Data Type](#uuid-data-type)
+    + [<u>**References**:</u>](#-u---references-----u-)
 
 ### Preface
 
-Here we will be introduced with PostgreSQL an open-source, robust, high-performance database with a lot of great features where we will do some hands-on practice to learn the basics of PostgreSQL. All the implementations were tested on Ubuntu 18.04. Before diving into PostgreSQL, we will have a look at some basic theory of **database**, **SQL**, and **PostgreSQL**.
+Here we will be introduced with PostgreSQL an open-source, robust, high-performance database with a lot of great features where we will do some hands-on practice to learn the basics of PostgreSQL. All the implementations were tested on Ubuntu 18.04. Before diving into PostgreSQL, we will have a look at some basic theories of **database**, **SQL**, and **PostgreSQL**.
 
 #### What is a Database? 
 
@@ -86,7 +87,7 @@ A **relational database** is a type of database that stores access to data point
 
 Just follow this link [Linux downloads (Ubuntu)](https://www.postgresql.org/download/linux/ubuntu/) and copy the script then paste on your terminal to install on Ubuntu using the apt repository. 
 
-For other systems follow this official link [Downloads](https://www.postgresql.org/download/) to download and for installation instructions.
+For other systems follow this official link [Downloads](https://www.postgresql.org/download/) to download and for the installation instructions.
 
 #### PostgreSQL Roles and User Login
 
@@ -116,7 +117,7 @@ To quit from Postgres prompt just type this command:
 
 ##### Accessing without Switching Accounts
 
-Following is the command that will log into Postgres without the intermediary *bash* shell in between.:
+Following is the command that will log into Postgres without the intermediary *bash* shell in between. That means this will redirect to you on the `psql` command prompt:
 
 `$ sudo -u postgres psql`
 
@@ -230,7 +231,7 @@ To delete a database from the shell type:
 
 <img src="./img/19.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-And to delete the database from the `psql`type this:
+And to delete the database from the `psql` type this:
 
 `DROP DATABASE databaseName2;`
 
@@ -404,7 +405,7 @@ CREATE TABLE person1 (
 );
 ```
 
-The constraint `NOT NULL`specifies that the column must have a data, it can not be left as blank.
+The constraint `NOT NULL` specifies that the column must have a data, it can not be left as blank.
 
 <img src="./img/32.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
@@ -639,7 +640,7 @@ SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth;
 
 
 
-We can us `HAVING` keyword with `GRPOP BY` keyword to specify a condition. 
+We can use `HAVING` keyword with `GRPOP BY` keyword to specify a condition. 
 
 Let's suppose that we want only those `country_of_birth` which have more than 5 persons on the table. Then type:
 
@@ -649,7 +650,7 @@ SELECT country_of_birth, COUNT(*) FROM person GROUP BY country_of_birth HAVING C
 
  <img src="./img/55.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-We used `COUNT()` in previous examples which is an Aggregate Function. This function is used for calculating the number of values of a column. There are more aggregate functions like SUM() - calculate the summation of the values of a column, AVG() - gives an average of the values of a column, MIN() - gives the minimum value of a column, MAX() - gives the maximum value of a column, etc. 
+We used `COUNT()` in previous examples which were an Aggregate Function. This function is used for calculating the number of values of a column. There are more aggregate functions like SUM() - calculate the summation of the values of a column, AVG() - gives an average of the values of a column, MIN() - gives the minimum value of a column, MAX() - gives the maximum value of a column, etc. 
 
 Before using these Aggregate Functions we will create a table and insert into that table from another SQL file named car.sql:
 
@@ -721,7 +722,7 @@ Have a look on the following screen shot:
 
 We know that in arithmetic a numeric value can not be divided by Zero. So as usual Postgres
 
-raises error while we try to perform division operation by Zero.  So in that case we use `NULLIF` keyword where two parameters are used, first one is considered to divide the given value only if the value is greater than or equal to second value.
+raises error while we try to perform division operation by Zero.  So in that case we use the `NULLIF` keyword where two parameters are used, the first one is considered to divide the given value only if the value is greater than or equal to the second value.
 
 It doesn't show the result while both parameters are zero, meanwhile, we can use `COALESCE` to set a default value that will show a 'Zero'
 
@@ -733,7 +734,7 @@ Let's see some date and times operations on terminal:
 
 #### Adding and Subtracting With Date
 
-We can add or subtract with dates in PostgreSQL using `INTERVAL` keyword.
+We can add or subtract with dates in PostgreSQL using the `INTERVAL` keyword.
 
 Let's try to subtract '1 YEAR', '10 YEAR', '10 MONTHS', '10 DAYS' from current dates. Type:
 
@@ -789,7 +790,7 @@ SELECT (NOW() + INTERVAL '10 YEAR')::DATE;
 
 #### Extracting Field From Date, Times in PostgreSQL
 
-We can extract single value such as Year, Month, Date, Minutes etc. from dates and times by using `EXTRACT` keyword.
+We can extract single value such as Year, Month, Date, Minutes, etc. from dates and times by using `EXTRACT` keyword.
 
 Let's walk through some example on terminal:
 
@@ -811,13 +812,13 @@ SELECT first_name, last_name, gender,country_of_birth, AGE(NOW(), date_of_birth)
 
 ### Primary Key In PostgreSQL
 
-We use PRIMARY KEY to differ from same values of a column or record. Such as, we can use an unique id to identify them as individual where two person's first_name, last_name and date_of_birth are same in a table.
+We use the PRIMARY KEY to differ from the same values of a column or record. Such as, we can use a unique id to identify them as individuals where two person's first_name, last_name, and date_of_birth are the same in a table.
 
 <img src="./img/69.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
 
 #### Understanding Primary Keys
 
-If we notice in the description of the table `person` then we can see that the table has already a constraint name 'person_pkey' for column `id` which is the PRIMARY KEY of  the table. Type: 
+If we notice in the description of the table `person` then we can see that the table has already a constraint name 'person_pkey' for column `id` which is the PRIMARY KEY of the table. Type: 
 
 `\d person`
 
@@ -833,7 +834,7 @@ SELECT * FROM person LIMIT 1;
 
 
 
-Now if we insert again same record as row number 1 to the table Postgres will raise an error that will say.
+Now if we insert again the same record as row number 1 to the table Postgres will raise an error that will say.
 
 `ERROR:  duplicate key value violates unique constraint "person_pkey"
 DETAIL:  Key (id)=(1) already exists.`
@@ -863,7 +864,7 @@ ALTER TABLE
 
 
 
-Notice at the below image where we can see the CONSTRAINT 'person_pkey' is dropped and there is no field that contain PRIMARY KEY.
+Notice at the below image where we can see the CONSTRAINT 'person_pkey' is dropped and there is no field that contains PRIMARY KEY.
 
 <img src="./img/74.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
@@ -891,7 +892,7 @@ SELECT * FROM person WHERE id = 1;
 
 #### Adding Primary Key
 
-In previous topic we dropped the CONSTRAINT from the `person` table and there is no PRIMARY KEY on the table `person`.
+In the previous topic, we dropped the CONSTRAINT from the `person` table and there is no PRIMARY KEY on the table `person`.
 
 Now let's add PRIMARY KEY to that table by typing:
 
@@ -903,7 +904,7 @@ And This will raise an error like this:
 
 <img src="./img/77.png" alt="PostgreSQL Icon" style="zoom:110%;" /> 
 
-Because the field need to be unique to set it PRIMARY KEY but there is already two exactly same records which we inserted into the table.
+Because the field needs to be unique to set it PRIMARY KEY but there is already two exactly the same records which we inserted into the table.
 
 So first let's remove the duplicate records by typing this:
 
@@ -941,7 +942,7 @@ and we will notice the PRIMARY KEY is added.
 
 #### UNIQUE CONSTRAINTS
 
-To set other fields or columns allowed for only unique value that means there can not be any duplicate value in a column, we can use `UNIQUE` CONSTRAINT.   
+To set other fields or columns allowed for the only unique value that means there can not be any duplicate value in a column, we can use `UNIQUE` CONSTRAINT.   
 
 Let's make `email` column as `UNIQUE` constraint, type this:
 
@@ -955,7 +956,7 @@ To check if the CONSTRAINT is added let's type:
 
 <img src="./img/82.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-Now we can not insert same `email` value into table `person` that email address already contain any row from the table.
+Now we can not insert the same `email` value into table `person` that email address already contains any row from the table.
 
 #### CHECK CONSTRAINTS
 
@@ -965,7 +966,7 @@ Another CONSTRAINT is used that checks values from a certain condition. If want 
 ALTER TABLE person ADD CONSTRAINT gender_constraint CHECK (gender = 'Female' OR gender = 'Male');
 ```
 
-Here we set a CONSTRAINT that checks the inserted `gender` is whether `Male` or `Female`. That means we can not insert record that contain any other string rather than 'Male' or 'Female',
+Here we set a CONSTRAINT that checks the inserted `gender` is whether `Male` or `Female`. That means we can not insert a record that contains any other string rather than 'Male' or 'Female',
 
 Type `\d person` to check the CONSTRAINTS from the indexes:
 
@@ -973,7 +974,7 @@ Type `\d person` to check the CONSTRAINTS from the indexes:
 
 ### Updating Records in PostgreSQL
 
-`UPDATE` command SQL allows us to update a column or multiple column using `WHERE` clause.
+`UPDATE` command SQL allows us to update a column or multiple columns using `WHERE` clause.
 
 Let's update a row where id is 901 and we will replace the email address with a new mail address: 
 
@@ -1033,7 +1034,7 @@ ON CONFLICT(id) DO NOTHING;
 
 <img src="./img/92.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
-***Note:*** It will only work for Unique column, here id and email are containing unique values.
+***Note:*** It will only work for the Unique column, here id and email are containing unique values.
 
 #### ON CONFLICT DO UPDATE
 
@@ -1062,9 +1063,9 @@ SELECT * FROM person WHERE id = 1;
 
 ### What Is A Relationship/Foreign Keys 
 
-A foreign key refers to a column or a group of columns in a table that reference the primary key of another table.  [ i ]
+A foreign key refers to a column or a group of columns in a table that references the primary key of another table.  
 
-Let's see an example creating two table name `customers` and `contacts`. In this example, the `customers` table is the parent table and the `contacts` table is the child table. 
+Let's see an example of creating two table names `customers` and `contacts`. In this example, the `customers` table is the parent table and the `contacts` table is the child table. [ i ]
 
 Each customer has zero or many contacts and each contact belongs to zero or one customer.
 
@@ -1132,6 +1133,32 @@ Let's walk through on terminal:
 
 <img src="./img/96.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
+
+
+And let's check on our `contacts` table:
+
+`\d contacts`
+
+<img src="./img/97.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+We can see that foreign-key constraints "fk_customer" were assigned successfully.
+
+And now let's check the table data:
+
+```sql
+SELECT * FROM contacts;
+
+SELECT * FROM customers;
+```
+
+<img src="./img/98.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+<img src="./img/99.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
 ### Inner Join
 
 `INNER JOIN` takes whats the common between two tables.
@@ -1140,16 +1167,117 @@ Let's walk through on terminal:
 
  
 
+**Inner Join in PostgreSQL:**
+
+To see INNER JOIN between two tables `contacts` and `customers type:`
+
+```sql
+SELECT * FROM contacts 
+JOIN customers ON contacts.customer_id = customers.customer_id;
+```
+
+<img src="./img/100.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Note: A `JOIN` simply links two tables where the primary key and foreign key is found in both tables.
+
+
+
+### Left Join
+
+A Left Join between two tables `A` and `B` includes all rows of table `A` and as always the records from table `B` that has a corresponding relationship with table `A`.
+
+<img src="./img/LeftJoin.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+In case the Left Join includes those rows also where the foreign key wasn't assigned. 
+
+To show left join between `contacts` and `customer` table type:
+
+```sql
+SELECT * FROM contacts LEFT JOIN customers ON customers.customer_id = contacts.customer_id;
+```
+
+<img src="./img/101.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+### Deleting Records with foreign keys
+
+When we try to delete a record from `customers` table it will raise an error. Let's say we want to delete a record from `customers` table where customer_id = 2 and the error will raise something following like this:
+
+<img src="./img/102.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+In that case, it means that first, we have to delete the record from the `contacts` table where the foreign key was assigned. 
+
+Let's delete the record from `contacts` table:
+
+<img src="./img/103.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+This is showing the record is deleted successfully.
+
+And then now we can delete the record from the `customers` table too!
+
+<img src="./img/104.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+### Exporting Query Results To CSV
+
+We can see the directory where our files are saving by typing:
+
+`\!pwd`
+
+<img src="./img/105.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+Now let's export the csv file `result.csv` from a table to that location:
+
+`\copy ( SELECT * FROM contacts LEFT JOIN customers ON customers.customer_id = contacts.customer_id) TO '/var/lib/postgresql/results.csv' DELIMITER ',' CSV HEADER; `
+
+Here is the location where result.csv is exported.
+
+<img src="./img/106.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+And here is the exported CSV file.
+
+<img src="./img/107.png" alt="PostgreSQL Icon" style="zoom:110%;" />
+
+
+
+### UUID Data Type
+
+This generates a universally unique identifier, which is a 128-bit number used to identify unique information. We can use UUID to set our primary key where we need unique sets of values.
+
+To install or create UUID to our Postgres database we simply type:
+
+`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"; `
+
+This is an extension or a function and to check all the other extensions just type:
+
+`select * from pg_available_extensions;`
+
+To see the installed functions:
+
+`\df`
+
+There will be several versions of UUID available. If we type the command `uuid_generate_v4` every time this will generate a unique key always.
+
+To genrate the UUID key type:
+
+```sql
+SELECT uuid_generate_v4();
+```
+
+<img src="./img/108.png" alt="PostgreSQL Icon" style="zoom:110%;" />
 
 
 
 
-#### To be continued ...
 
 
+
+PS: The Documentation will be continuously updated and you are welcome to contribute and giving feedback to fix any errors or adding any new topics. 
 
 ### <u>**References**:</u>
 
-
 [ i ] *https://www.postgresqltutorial.com/postgresql-foreign-key/*  What Is A Relationship/Foreign Key
-
